@@ -23,3 +23,17 @@ export const createTask = createServerAction()
       },
     });
   });
+
+export async function listTasks() {
+  const sessionId = await getCurrentSession();
+
+  if (!sessionId) {
+    throw new Error('Usuário não autenticado');
+  }
+
+  return prisma.task.findMany({
+    where: {
+      sessionId,
+    },
+  });
+}

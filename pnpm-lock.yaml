@@ -164,6 +164,9 @@ importers:
       zsa:
         specifier: ^0.6.0
         version: 0.6.0(zod@3.24.1)
+      zustand:
+        specifier: ^5.0.2
+        version: 5.0.2(@types/react@19.0.2)(react@19.0.0)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -4157,6 +4160,24 @@ packages:
     resolution: {integrity: sha512-Pq3X4T0dna5s4dIevYOJiRdM3DUHRvEHS2q1AH/bvkPSh640u+9veVj5zmzmbL0A6cpXMYagwKsR4keGOc0jPQ==}
     peerDependencies:
       zod: ^3.23.5
+
+  zustand@5.0.2:
+    resolution: {integrity: sha512-8qNdnJVJlHlrKXi50LDqqUNmUbuBjoKLrYQBnoChIbVph7vni+sY+YpvdjXG9YLd/Bxr6scMcR+rm5H3aSqPaw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
 snapshots:
 
@@ -8587,3 +8608,8 @@ snapshots:
   zsa@0.6.0(zod@3.24.1):
     dependencies:
       zod: 3.24.1
+
+  zustand@5.0.2(@types/react@19.0.2)(react@19.0.0):
+    optionalDependencies:
+      '@types/react': 19.0.2
+      react: 19.0.0
