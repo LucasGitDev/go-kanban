@@ -11,12 +11,14 @@ import {
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { useTasks } from '@/stores/tasks';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { createTask } from '../_actions';
+import { createTask, listTasks } from '../_actions';
 import { createTaskSchema } from '../_schemas';
 
 function NewTodo() {
+  const { copyWith } = useTasks();
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(createTaskSchema),
     defaultValues: {
@@ -27,6 +29,8 @@ function NewTodo() {
   const onSubmit = form.handleSubmit(async (data) => {
     await createTask(data);
     form.reset();
+    const tasks = await listTasks();
+    copyWith({ tasks });
   });
 
   return (
