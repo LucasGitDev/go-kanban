@@ -6,6 +6,7 @@
 
 - Sistema de gestão de sessões (simples)
 - [FRONTEND] Navbar do projeto
+- Funcionalidade de criar novas tarefas.
 
 ### Modificado
 

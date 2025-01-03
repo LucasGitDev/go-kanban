@@ -19,3 +19,10 @@ export async function generateSession() {
 
   return session.value;
 }
+
+export async function getCurrentSession(): Promise<string | undefined> {
+  const cookieStore = await cookies();
+  const session = cookieStore.get('session_id');
+
+  return session?.value;
+}
