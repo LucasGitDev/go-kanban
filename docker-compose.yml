@@ -1,0 +1,24 @@
+volumes:
+  go-kanban_db_pg_vol:
+
+networks:
+  go-kanban_net:
+    name: go-kanban
+
+services:
+  go-kanban_db:
+    container_name: go-kanban_db
+    image: postgres:15-alpine
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '${DB_PORT}:5432'
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    networks:
+      - go-kanban_net
+    volumes:
+      - go-kanban_db_pg_vol:/var/lib/postgresql/data
