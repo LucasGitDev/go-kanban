@@ -4,7 +4,8 @@
 
 ### Adicionado
 
-- N/A
+- Sistema de gestão de sessões (simples)
+- [FRONTEND] Navbar do projeto
 
 ### Modificado
 
